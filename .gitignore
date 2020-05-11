@@ -32,3 +32,4 @@ out/
 .vscode/
 
 *.hprof
+*.DS_STORE
