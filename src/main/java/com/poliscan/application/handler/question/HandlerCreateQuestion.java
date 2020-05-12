@@ -3,7 +3,6 @@ package com.poliscan.application.handler.question;
 import com.poliscan.application.factory.FactoryQuestion;
 import com.poliscan.application.handler.command.CommandQuestion;
 import com.poliscan.domain.model.dto.DtoQuestion;
-import com.poliscan.domain.model.entity.Question;
 import com.poliscan.domain.service.question.ServiceCreateQuestion;
 import org.springframework.stereotype.Component;
 
