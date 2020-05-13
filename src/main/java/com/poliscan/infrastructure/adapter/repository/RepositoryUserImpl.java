@@ -1,5 +1,6 @@
 package com.poliscan.infrastructure.adapter.repository;
 
+import com.poliscan.domain.exceptions.ExceptionGeneral;
 import com.poliscan.domain.model.dto.DtoUser;
 import com.poliscan.domain.model.entity.User;
 import com.poliscan.domain.port.repository.RepositoryUser;
@@ -10,6 +11,7 @@ import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class RepositoryUserImpl implements RepositoryUser {
@@ -26,6 +28,9 @@ public class RepositoryUserImpl implements RepositoryUser {
         ObjectId objectId = new ObjectId();
         user.setId(objectId.toString());
         EntityUser entityUser = this.mapperUser.modelToEntity(user);
+        if(jpaUserRepository.existsByEmail(entityUser.getEmail())){
+            throw new ExceptionGeneral("Error: Email already exists");
+        }
         EntityUser entityUserSaved = this.jpaUserRepository.save(entityUser);
         return this.mapperUser.entityToDto(entityUserSaved);
     }
@@ -47,5 +52,13 @@ public class RepositoryUserImpl implements RepositoryUser {
         this.jpaUserRepository.deleteById(id);
     }
 
+    @Override
+    public DtoUser login(String email, String pass) {
+        Optional<EntityUser> entityUser = this.jpaUserRepository.findByEmailAndPass(email, pass);
+        if(!entityUser.isPresent()){
+            throw new ExceptionGeneral("Error: User does not exist");
+        }
+        return this.mapperUser.entityToDto(entityUser.get());
+    }
 
 }

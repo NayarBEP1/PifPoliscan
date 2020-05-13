@@ -32,6 +32,11 @@ public class User {
         this.pass = pass;
     }
 
+    public User(String email, String pass) {
+        this.email = email;
+        this.pass = pass;
+    }
+
     public String getId() {
         return id;
     }

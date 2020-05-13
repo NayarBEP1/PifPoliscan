@@ -11,12 +11,14 @@ public class EntityQuestion {
     private String question;
     private String answer;
     private String description;
+    private String area;
 
-    public EntityQuestion(String id, String question, String answer, String description) {
+    public EntityQuestion(String id, String question, String answer, String description, String area) {
         this.id = id;
         this.question = question;
         this.answer = answer;
         this.description = description;
+        this.area = area;
     }
 
     public String getId() {
@@ -49,5 +51,13 @@ public class EntityQuestion {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }
 }

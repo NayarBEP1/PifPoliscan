@@ -18,8 +18,8 @@ public class ServiceListQuestion {
         return this.repositoryQuestion.listQuestion();
     }
 
-    public DtoQuestion getRandomQuestion() {
-        List<DtoQuestion> list = this.repositoryQuestion.listQuestion();
+    public DtoQuestion getRandomQuestion(String area) {
+        List<DtoQuestion> list = this.repositoryQuestion.getAQuestion(area);
         int random = ThreadLocalRandom.current().nextInt(0,list.size());
         return list.get(random);
     }

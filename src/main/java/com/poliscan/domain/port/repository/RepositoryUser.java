@@ -14,4 +14,6 @@ public interface RepositoryUser {
     List<DtoUser> listUser();
 
     void deleteUser(String id);
+
+    DtoUser login(String email, String pass);
 }

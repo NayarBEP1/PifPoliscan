@@ -19,7 +19,7 @@ public class HandlerListQuestion {
          return this.serviceListQuestion.run();
     }
 
-    public DtoQuestion getRandomQuestion(){
-        return this.serviceListQuestion.getRandomQuestion();
+    public DtoQuestion getRandomQuestion(String area){
+        return this.serviceListQuestion.getRandomQuestion(area);
     }
 }

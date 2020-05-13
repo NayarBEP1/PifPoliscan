@@ -19,4 +19,8 @@ public class HandlerListUser {
         return this.serviceListUser.run();
     }
 
+    public DtoUser login(String email, String pass) {
+        return this.serviceListUser.login(email, pass);
+    }
+
 }

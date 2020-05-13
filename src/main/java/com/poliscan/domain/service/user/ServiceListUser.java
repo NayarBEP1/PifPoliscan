@@ -2,6 +2,7 @@ package com.poliscan.domain.service.user;
 
 import com.poliscan.domain.model.dto.DtoUser;
 import com.poliscan.domain.port.repository.RepositoryUser;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public class ServiceListUser {
     public List<DtoUser> run(){
         return this.repositoryUser.listUser();
     }
+
+    public DtoUser login(String email, String pass) { return this.repositoryUser.login(email, pass); }
 }

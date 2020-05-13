@@ -15,4 +15,6 @@ public interface RepositoryQuestion {
 
     void deleteQuestion(String id);
 
+    List<DtoQuestion> getAQuestion(String area);
+
 }
