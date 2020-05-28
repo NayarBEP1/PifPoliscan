@@ -61,7 +61,7 @@ public class RepositoryQuestionImpl implements RepositoryQuestion {
 
     @Override
     public List<DtoQuestion> getAQuestion(String area) {
-        List<EntityQuestion> entityQuestionList = this.jpaQuestionRepository.findByArea(area);
+        List<EntityQuestion> entityQuestionList = this.jpaQuestionRepository.findByArea(new ObjectId(area));
         return this.mapperQuestion.entityListToDtoList(entityQuestionList);
     }
 }

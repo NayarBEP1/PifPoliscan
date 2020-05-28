@@ -3,7 +3,7 @@ package com.poliscan.infrastructure.entity;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-@Document("question")
+@Document("pregunta")
 public class EntityQuestion {
 
     @MongoId
